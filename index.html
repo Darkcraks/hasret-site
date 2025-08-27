@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+	<title>Hasret İçin 💖</title>
+	<meta name="description" content="Hasret'e özel minnoş bir aşk sürprizi">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- html2canvas for screenshot capture -->
+	<script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+	<script defer src="assets/js/app.js"></script>
+</head>
+<body>
+	<canvas id="hearts-bg" aria-hidden="true"></canvas>
+	<main id="app" class="app-wrapper">
+		<!-- Section 1: Love Letter -->
+		<section class="panel active" id="panel-letter" data-panel>
+			<h1 class="script-title">Sevgili Hasret</h1>
+			<div class="letter typewriter" id="loveLetter"></div>
+			<button class="btn primary" data-next="panel-messages">Devam Et ✨</button>
+		</section>
+
+		<!-- Section 2: Message Carousel -->
+		<section class="panel" id="panel-messages" data-panel>
+			<h2>Kalpten Notlar 💌</h2>
+			<div class="carousel" id="messageCarousel" aria-live="polite"></div>
+			<div class="carousel-controls">
+				<button class="btn ghost" id="prevMsg" aria-label="Önceki mesaj">⟵</button>
+				<button class="btn ghost" id="nextMsg" aria-label="Sonraki mesaj">⟶</button>
+			</div>
+			<button class="btn primary" data-next="panel-games">Mini Oyunlar 🎮</button>
+		</section>
+
+		<!-- Section 3: Games -->
+		<section class="panel" id="panel-games" data-panel>
+			<h2>Mini Oyunlar</h2>
+			<nav class="game-tabs" aria-label="Oyun sekmeleri">
+				<button class="tab active" data-game-tab="hearts">Kalp Avı</button>
+				<button class="tab" data-game-tab="memory">Hafıza</button>
+			</nav>
+			<div class="games">
+				<div class="game active" id="game-hearts" role="group" aria-label="Kalp Avı Oyunu">
+					<p>Ekrana dokun / tıkla, kalpleri yakala. <strong>Skor:</strong> <span id="heartScore">0</span></p>
+					<div class="heart-game-area" id="heartGameArea" tabindex="0" aria-label="Kalp avı alanı"></div>
+				</div>
+				<div class="game" id="game-memory" role="group" aria-label="Hafıza Oyunu">
+					<p>Tüm kalp çiftlerini eşleştir ♥</p>
+					<div class="memory-grid" id="memoryGrid" aria-label="Hafıza kartları"></div>
+					<div class="memory-status" id="memoryStatus"></div>
+				</div>
+			</div>
+			<div class="game-actions">
+				<button class="btn ghost" id="resetMemory">Hafızayı Sıfırla</button>
+			</div>
+			<button class="btn primary" data-next="panel-question">Sıradaki Sürpriz 💟</button>
+		</section>
+
+		<!-- Section 4: Question -->
+		<section class="panel" id="panel-question" data-panel>
+			<h2 class="pulse">Benimle sevgili olur musun? 💞</h2>
+			<div class="answer-buttons">
+				<button class="btn yes" id="btnYes">Evet 💖</button>
+				<button class="btn no" id="btnNo">Hayır 😢</button>
+			</div>
+			<p class="hint">(Hayır butonu kaçabilir 😉)</p>
+		</section>
+
+		<!-- Section 5: Responses -->
+		<section class="panel" id="panel-yes" data-panel>
+			<h2 class="celebrate">Yaşasın! 🎉</h2>
+			<p>Bu anı ölümsüzleştirdim. Aşağıdaki görseli kaydedip bana atabilirsin. Seni çok mutlu edeceğim. 💗</p>
+			<div id="capturePreview" class="capture-preview"></div>
+			<button class="btn primary" data-restart>Başa Dön</button>
+		</section>
+		<section class="panel" id="panel-no" data-panel>
+			<h2>Hmm... Emin misin? 🤔</h2>
+			<p>Kalbim bir <span class="broken">minik çat</span> etti. Yine de gülümsemen her şeye değer. Bir şans daha? 💫</p>
+			<button class="btn primary" id="tryAgain">Belki evet diyebilirim...</button>
+			<div id="capturePreviewNo" class="capture-preview"></div>
+		</section>
+	</main>
+	<noscript>Bu sürpriz için JavaScript gerekiyor 💗</noscript>
+</body>
+</html>
